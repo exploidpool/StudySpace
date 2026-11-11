@@ -7,8 +7,8 @@ export function initTelegram() {
   tg.ready()
   tg.expand()
   if (tg.isVersionAtLeast('6.1')) {
-    tg.setHeaderColor('#0b0d14')
-    tg.setBackgroundColor('#0b0d14')
+    tg.setHeaderColor('#111210')
+    tg.setBackgroundColor('#111210')
   }
 }
 

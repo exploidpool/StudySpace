@@ -23,8 +23,10 @@ export default function App() {
   }
 
   return (
-    <div className="mx-auto min-h-full max-w-lg px-4 pb-24 pt-6">
-      {pages[tab]}
+    <div className="app-shell mx-auto max-w-lg">
+      <main key={tab} className="page-enter">
+        {pages[tab]}
+      </main>
       <TabBar active={tab} onChange={setTab} />
     </div>
   )

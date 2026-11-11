@@ -6,11 +6,18 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "node --test src/features/schedule/*.test.mjs src/services/*.test.mjs",
+    "prepare:ocr": "node prepare-ocr.mjs",
+    "predev": "npm run prepare:ocr",
+    "prebuild": "npm run prepare:ocr"
   },
   "dependencies": {
     "react": "^19.3.1",
-    "react-dom": "^19.3.1"
+    "react-dom": "^19.3.1",
+    "tesseract.js": "6.0.1",
+    "@tesseract.js-data/rus": "1.0.0",
+    "@tesseract.js-data/eng": "1.0.0"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.5",

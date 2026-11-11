@@ -1,4 +1,5 @@
 node_modules/
+.npm-cache/
 dist/
 .wrangler/
 .dev.vars
@@ -6,4 +7,6 @@ dist/
 .env.*
 *.local
 npm-debug.log*
+frontend/public/ocr/
+samples.local/
 .DS_Store

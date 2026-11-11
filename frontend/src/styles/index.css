@@ -1,25 +1,174 @@
 @import "tailwindcss";
 
 @theme {
-  --color-base: #0b0d14;
-  --color-surface: #141826;
-  --color-raised: #1c2236;
-  --color-line: #283050;
-  --color-accent: #8b5cf6;
-  --color-blue: #3b82f6;
-  --color-ink: #e7e9f2;
-  --color-dim: #8b91a9;
+  --color-base: #111210;
+  --color-surface: #1a1b18;
+  --color-raised: #292a26;
+  --color-raised-strong: #33342f;
+  --color-line: #343630;
+  --color-accent: #e7ff62;
+  --color-accent-ink: #15170d;
+  --color-ink: #f2f3ed;
+  --color-dim: #96988e;
+  --color-danger: #ff7b7b;
+  --radius-card: 1.5rem;
+  --radius-inner: 1.125rem;
+  --radius-control: 1rem;
 }
 
-html,
+:root {
+  color-scheme: dark;
+  --app-safe-top: max(var(--tg-safe-area-inset-top, 0px), var(--tg-content-safe-area-inset-top, 0px), env(safe-area-inset-top, 0px));
+  --app-safe-right: max(var(--tg-safe-area-inset-right, 0px), var(--tg-content-safe-area-inset-right, 0px), env(safe-area-inset-right, 0px));
+  --app-safe-bottom: max(var(--tg-safe-area-inset-bottom, 0px), var(--tg-content-safe-area-inset-bottom, 0px), env(safe-area-inset-bottom, 0px));
+  --app-safe-left: max(var(--tg-safe-area-inset-left, 0px), var(--tg-content-safe-area-inset-left, 0px), env(safe-area-inset-left, 0px));
+  --shadow-border: 0 0 0 1px oklch(1 0 0 / 0.08);
+  --shadow-border-hover: 0 0 0 1px oklch(1 0 0 / 0.13);
+}
+
+html {
+  min-height: 100%;
+  background: var(--color-base);
+}
+
 body,
 #root {
-  height: 100%;
+  min-height: var(--tg-viewport-stable-height, 100dvh);
 }
 
 body {
+  margin: 0;
+  overflow-x: hidden;
   background-color: var(--color-base);
   color: var(--color-ink);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.app-shell {
+  width: 100%;
+  min-height: var(--tg-viewport-stable-height, 100dvh);
+  padding-top: max(1.5rem, calc(var(--app-safe-top) + 0.75rem));
+  padding-right: max(1rem, var(--app-safe-right));
+  padding-bottom: calc(7.5rem + var(--app-safe-bottom));
+  padding-left: max(1rem, var(--app-safe-left));
+}
+
+.ui-surface {
+  border: 1px solid transparent;
+  box-shadow: var(--shadow-border);
+}
+
+.ui-press {
+  transition-property: scale, color, background-color, box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+}
+
+.app-tab-bar {
+  right: max(0.5rem, var(--app-safe-right));
+  left: max(0.5rem, var(--app-safe-left));
+  width: auto;
+  margin-inline: auto;
+}
+
+.bg-accent.text-white {
+  color: var(--color-accent-ink);
+}
+
+.page-enter {
+  animation: page-fade 150ms ease-out both;
+}
+
+.page-title {
+  font-size: 1.625rem;
+  line-height: 1.25;
+}
+
+.nav-label {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 12px;
+  letter-spacing: -0.07em;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+.week-view {
+  animation: page-fade 150ms ease-out both;
+}
+
+@keyframes page-fade {
+  from { opacity: 0; }
+}
+
+@keyframes page-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(4px);
+  }
+}
+
+@keyframes week-enter-forward {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+    filter: blur(4px);
+  }
+}
+
+@keyframes week-enter-back {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+    filter: blur(4px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ui-press:not(:disabled):active {
+    scale: 0.96;
+  }
+
+  .page-enter {
+    animation-name: page-fade-up;
+    animation-duration: 300ms;
+  }
+
+  .week-view[data-direction="1"] {
+    animation-name: week-enter-forward;
+    animation-duration: 200ms;
+  }
+
+  .week-view[data-direction="-1"] {
+    animation-name: week-enter-back;
+    animation-duration: 200ms;
+  }
+}
+
+@media (max-width: 359px) {
+  .page-title {
+    font-size: 1.4rem;
+  }
 }

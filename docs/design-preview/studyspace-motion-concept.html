@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StudySpace — motion-концепт</title>
+  <style>
+    html { min-height: 100%; background: #171816; }
+    body { min-height: 100%; margin: 0; background:
+      radial-gradient(circle at 20% 15%, rgba(231,255,98,.07), transparent 28%),
+      radial-gradient(circle at 80% 85%, rgba(231,255,98,.045), transparent 24%),
+      #171816; }
+    .viz-dotted-background { background-image: radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px); background-size: 18px 18px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  </style>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+<div id="studyspace-motion-preview" class="viz-dotted-background ss-preview">
+  <section class="ss-phone" aria-label="Концепт интерфейса StudySpace">
+    <div class="ss-statusbar" aria-hidden="true">
+      <span>9:41</span>
+      <span class="ss-status-icons"><i data-lucide="signal"></i><i data-lucide="wifi"></i><i data-lucide="battery-full"></i></span>
+    </div>
+
+    <main class="ss-main">
+      <section class="ss-panel is-active" data-panel="home" aria-label="Главная">
+        <header class="ss-header ss-enter">
+          <div>
+            <p class="ss-eyebrow">Вторник, 10 ноября</p>
+            <h1 aria-label="Привет, @studyspace_user_long">Привет, @studyspace_u…</h1>
+          </div>
+          <button type="button" class="ss-icon-button" aria-label="Открыть уведомления">
+            <i data-lucide="bell"></i>
+            <span class="ss-dot" aria-hidden="true"></span>
+          </button>
+        </header>
+
+        <article class="ss-next ss-enter">
+          <div class="ss-card-topline">
+            <span class="ss-live"><span aria-hidden="true"></span>Следующая пара</span>
+            <span class="ss-time-left">через 24 мин</span>
+          </div>
+          <div class="ss-next-time">12:30 <span>— 14:05</span></div>
+          <h2>Основы проектирования</h2>
+          <div class="ss-meta">
+            <span><i data-lucide="map-pin"></i> Ауд. 10221</span>
+            <span><i data-lucide="users"></i> Подгруппа 1</span>
+          </div>
+        </article>
+
+        <section class="ss-section ss-enter" aria-labelledby="today-title">
+          <div class="ss-section-heading">
+            <h2 id="today-title">Сегодня</h2>
+            <button type="button" class="ss-text-button" data-page-link="schedule">Всё расписание <i data-lucide="chevron-right"></i></button>
+          </div>
+          <div class="ss-lessons">
+            <article class="ss-lesson is-current">
+              <div class="ss-lesson-time"><strong>12:30</strong><span>14:05</span></div>
+              <div class="ss-lesson-copy"><h3>Основы проектирования</h3><p>10221 · Подгруппа 1</p></div>
+              <span class="ss-state">Скоро</span>
+            </article>
+            <article class="ss-lesson">
+              <div class="ss-lesson-time"><strong>14:15</strong><span>15:50</span></div>
+              <div class="ss-lesson-copy"><h3>Основы проектирования</h3><p>10221 · Подгруппа 1</p></div>
+              <button type="button" class="ss-row-action" aria-label="Подробнее об Основах проектирования"><i data-lucide="ellipsis"></i></button>
+            </article>
+          </div>
+        </section>
+
+        <section class="ss-task-empty ss-enter">
+          <span class="ss-empty-icon"><i data-lucide="circle-check-big"></i></span>
+          <div><h2>Задач на сегодня нет</h2><p>Новые дедлайны появятся здесь</p></div>
+        </section>
+      </section>
+
+      <section class="ss-panel" data-panel="schedule" aria-label="Расписание" hidden>
+        <header class="ss-header">
+          <div>
+            <p class="ss-eyebrow">Группа ИС-942</p>
+            <h1>Расписание</h1>
+          </div>
+          <button type="button" class="ss-icon-button" aria-label="Поиск по расписанию"><i data-lucide="search"></i></button>
+        </header>
+
+        <div class="ss-week-switcher">
+          <button type="button" class="ss-icon-button" data-week="prev" aria-label="Предыдущая неделя"><i data-lucide="chevron-left"></i></button>
+          <div><strong id="ss-week-label">9–15 ноября</strong><span>Текущая неделя</span></div>
+          <button type="button" class="ss-icon-button" data-week="next" aria-label="Следующая неделя"><i data-lucide="chevron-right"></i></button>
+        </div>
+
+        <div class="ss-days" role="tablist" aria-label="Дни недели">
+          <button type="button" role="tab" aria-selected="false" data-day="Пн"><span>Пн</span><strong>9</strong></button>
+          <button type="button" role="tab" aria-selected="true" data-day="Вт" class="is-selected"><span>Вт</span><strong>10</strong><i aria-hidden="true"></i></button>
+          <button type="button" role="tab" aria-selected="false" data-day="Ср"><span>Ср</span><strong>11</strong></button>
+          <button type="button" role="tab" aria-selected="false" data-day="Чт"><span>Чт</span><strong>12</strong></button>
+          <button type="button" role="tab" aria-selected="false" data-day="Пт"><span>Пт</span><strong>13</strong></button>
+          <button type="button" role="tab" aria-selected="false" data-day="Сб"><span>Сб</span><strong>14</strong></button>
+        </div>
+
+        <section class="ss-schedule-list" aria-labelledby="ss-day-title">
+          <div class="ss-section-heading"><h2 id="ss-day-title">Вторник</h2><span class="ss-count">3 пары</span></div>
+          <article class="ss-timeline-row">
+            <div class="ss-timeline-time"><strong>12:30</strong><span>14:05</span></div>
+            <div class="ss-timeline-line"><span></span></div>
+            <div class="ss-schedule-card"><span class="ss-subject-mark"></span><h3>Основы проектирования</h3><p><i data-lucide="map-pin"></i> 10221 <span>·</span> Подгруппа 1</p></div>
+          </article>
+          <article class="ss-timeline-row">
+            <div class="ss-timeline-time"><strong>14:15</strong><span>15:50</span></div>
+            <div class="ss-timeline-line"><span></span></div>
+            <div class="ss-schedule-card"><span class="ss-subject-mark"></span><h3>Классный час</h3><p><i data-lucide="users"></i> Общее занятие</p></div>
+          </article>
+          <article class="ss-timeline-row">
+            <div class="ss-timeline-time"><strong>17:45</strong><span>19:20</span></div>
+            <div class="ss-timeline-line"><span></span></div>
+            <div class="ss-schedule-card"><span class="ss-subject-mark"></span><h3>Основы проектирования</h3><p><i data-lucide="map-pin"></i> 10221 <span>·</span> Подгруппа 2</p></div>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <nav class="ss-nav" aria-label="Основные разделы">
+      <button type="button" class="is-active" data-page="home" aria-current="page"><i data-lucide="house"></i><span>Главная</span></button>
+      <button type="button" data-page="schedule"><i data-lucide="calendar-days"></i><span>Расписание</span></button>
+      <button type="button" disabled data-tooltip="Следующий этап"><i data-lucide="square-check-big"></i><span>Задания</span></button>
+      <button type="button" disabled data-tooltip="Следующий этап"><i data-lucide="folder-open"></i><span>Материалы</span></button>
+      <button type="button" disabled data-tooltip="Следующий этап"><i data-lucide="user-round"></i><span>Профиль</span></button>
+    </nav>
+    <div class="ss-home-indicator" aria-hidden="true"></div>
+    <span class="sr-only" role="status" aria-live="polite" id="ss-preview-status"></span>
+  </section>
+</div>
+
+<style>
+#studyspace-motion-preview {
+  --ss-bg: #111210;
+  --ss-surface: #1a1b18;
+  --ss-raised: #292a26;
+  --ss-raised-2: #33342f;
+  --ss-ink: #f2f3ed;
+  --ss-dim: #96988e;
+  --ss-line: rgba(255,255,255,.085);
+  --ss-accent: #e7ff62;
+  --ss-accent-ink: #15170d;
+  --ss-radius: 24px;
+  min-height: 820px;
+  display: grid;
+  place-items: center;
+  padding: 22px 8px 30px;
+  color: var(--ss-ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+#studyspace-motion-preview * { box-sizing: border-box; }
+#studyspace-motion-preview button { font: inherit; }
+
+.ss-phone {
+  width: min(390px, 100%);
+  min-height: 770px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 42px;
+  background:
+    radial-gradient(circle at 88% 4%, rgba(231,255,98,.07), transparent 28%),
+    var(--ss-bg);
+  box-shadow: 0 32px 90px rgba(0,0,0,.38), inset 0 0 0 1px rgba(255,255,255,.025);
+}
+
+.ss-statusbar {
+  height: 42px;
+  padding: 17px 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.ss-status-icons { display: flex; align-items: center; gap: 6px; }
+.ss-status-icons svg { width: 13px; height: 13px; stroke-width: 2; }
+
+.ss-main { padding: 18px 18px 116px; }
+.ss-panel[hidden] { display: none; }
+
+.ss-header { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 22px; }
+.ss-eyebrow { margin: 0 0 4px; color: var(--ss-dim); font-size: 12px; font-weight: 500; letter-spacing: .02em; }
+.ss-header h1 { margin: 0; font-size: 25px; line-height: 1.08; font-weight: 650; letter-spacing: -.035em; }
+
+.ss-icon-button,
+.ss-row-action {
+  border: 1px solid transparent;
+  display: grid;
+  place-items: center;
+  color: var(--ss-ink);
+  background: var(--ss-raised);
+  box-shadow: 0 0 0 1px var(--ss-line);
+  transition-property: scale, background-color, box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+}
+.ss-icon-button { position: relative; width: 44px; height: 44px; border-radius: 50%; }
+.ss-icon-button svg { width: 19px; height: 19px; stroke-width: 1.8; }
+.ss-row-action { width: 36px; height: 36px; border-radius: 50%; }
+.ss-row-action svg { width: 18px; height: 18px; }
+.ss-dot { position: absolute; width: 7px; height: 7px; right: 9px; top: 8px; border-radius: 50%; background: var(--ss-accent); box-shadow: 0 0 0 3px var(--ss-raised); }
+
+.ss-next {
+  padding: 18px;
+  margin-bottom: 22px;
+  border: 1px solid transparent;
+  border-radius: var(--ss-radius);
+  background: linear-gradient(145deg, var(--ss-raised-2), var(--ss-raised));
+  box-shadow: 0 0 0 1px var(--ss-line), 0 16px 38px rgba(0,0,0,.16);
+}
+.ss-card-topline { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 11px; }
+.ss-live { color: var(--ss-accent); display: inline-flex; align-items: center; gap: 7px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+.ss-live span { width: 6px; height: 6px; border-radius: 50%; background: var(--ss-accent); }
+.ss-time-left { color: var(--ss-dim); }
+.ss-next-time { margin-top: 19px; font-size: 30px; line-height: 1; font-weight: 650; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.ss-next-time span { color: var(--ss-dim); font-size: 16px; font-weight: 500; letter-spacing: -.01em; }
+.ss-next h2 { margin: 10px 0 15px; font-size: 18px; line-height: 1.25; font-weight: 600; }
+.ss-meta { display: flex; flex-wrap: wrap; gap: 8px; color: var(--ss-dim); font-size: 12px; }
+.ss-meta span { display: inline-flex; align-items: center; gap: 5px; }
+.ss-meta svg { width: 14px; height: 14px; stroke-width: 1.8; }
+
+.ss-section { margin-bottom: 18px; }
+.ss-section-heading { min-height: 32px; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.ss-section-heading h2 { margin: 0; font-size: 16px; font-weight: 600; letter-spacing: -.02em; }
+.ss-text-button { border: 0; padding: 7px 0 7px 10px; display: inline-flex; align-items: center; gap: 3px; color: var(--ss-accent); background: transparent; font-size: 12px; }
+.ss-text-button svg { width: 14px; height: 14px; }
+.ss-lessons { display: grid; gap: 8px; }
+.ss-lesson { min-height: 67px; padding: 12px; display: grid; grid-template-columns: 50px 1fr auto; align-items: center; gap: 11px; border: 1px solid transparent; border-radius: calc(var(--ss-radius) - 6px); background: var(--ss-surface); box-shadow: 0 0 0 1px var(--ss-line); }
+.ss-lesson.is-current { background: color-mix(in srgb, var(--ss-accent) 7%, var(--ss-surface)); }
+.ss-lesson-time { display: flex; flex-direction: column; font-size: 11px; line-height: 1.35; font-variant-numeric: tabular-nums; }
+.ss-lesson-time strong { color: var(--ss-ink); font-size: 13px; }
+.ss-lesson-time span { color: var(--ss-dim); }
+.ss-lesson-copy { min-width: 0; }
+.ss-lesson-copy h3 { margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; font-weight: 600; }
+.ss-lesson-copy p { margin: 4px 0 0; color: var(--ss-dim); font-size: 11px; }
+.ss-state { padding: 6px 8px; border-radius: 999px; color: var(--ss-accent-ink); background: var(--ss-accent); font-size: 10px; font-weight: 700; }
+
+.ss-task-empty { padding: 14px; display: flex; align-items: center; gap: 12px; border-radius: calc(var(--ss-radius) - 4px); background: rgba(255,255,255,.035); }
+.ss-empty-icon { width: 36px; height: 36px; display: grid; place-items: center; flex: 0 0 auto; border-radius: 50%; color: var(--ss-accent); background: color-mix(in srgb, var(--ss-accent) 10%, transparent); }
+.ss-empty-icon svg { width: 18px; height: 18px; }
+.ss-task-empty h2 { margin: 0; font-size: 13px; font-weight: 600; }
+.ss-task-empty p { margin: 3px 0 0; color: var(--ss-dim); font-size: 11px; }
+
+.ss-week-switcher { min-height: 62px; margin-bottom: 17px; padding: 8px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; gap: 10px; border-radius: var(--ss-radius); background: var(--ss-surface); box-shadow: 0 0 0 1px var(--ss-line); }
+.ss-week-switcher > div { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.ss-week-switcher strong { font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.ss-week-switcher span { margin-top: 2px; color: var(--ss-dim); font-size: 10px; }
+
+.ss-days { display: grid; grid-template-columns: repeat(6, 1fr); gap: 5px; margin-bottom: 21px; }
+.ss-days button { min-width: 0; min-height: 60px; position: relative; padding: 8px 3px; display: flex; flex-direction: column; align-items: center; gap: 5px; border: 1px solid transparent; border-radius: 17px; color: var(--ss-dim); background: transparent; transition-property: color, background-color, scale; transition-duration: 150ms; transition-timing-function: ease-out; }
+.ss-days button span { font-size: 10px; }
+.ss-days button strong { font-size: 13px; font-weight: 600; }
+.ss-days button.is-selected { color: var(--ss-accent-ink); background: var(--ss-accent); }
+.ss-days button i { position: absolute; bottom: 4px; width: 3px; height: 3px; border-radius: 50%; background: currentColor; }
+
+.ss-count { padding: 5px 8px; border-radius: 999px; color: var(--ss-dim); background: rgba(255,255,255,.05); font-size: 10px; }
+.ss-schedule-list { margin-top: 4px; }
+.ss-timeline-row { display: grid; grid-template-columns: 45px 11px 1fr; gap: 8px; min-height: 100px; }
+.ss-timeline-time { padding-top: 13px; display: flex; flex-direction: column; font-size: 10px; font-variant-numeric: tabular-nums; }
+.ss-timeline-time strong { font-size: 12px; font-weight: 650; }
+.ss-timeline-time span { margin-top: 2px; color: var(--ss-dim); }
+.ss-timeline-line { position: relative; display: flex; justify-content: center; }
+.ss-timeline-line::before { content: ""; position: absolute; top: 20px; bottom: -1px; width: 1px; background: var(--ss-line); }
+.ss-timeline-line span { position: relative; z-index: 1; width: 7px; height: 7px; margin-top: 20px; border-radius: 50%; background: var(--ss-accent); box-shadow: 0 0 0 4px var(--ss-bg); }
+.ss-schedule-card { min-width: 0; height: 82px; position: relative; padding: 14px 14px 12px 17px; border: 1px solid transparent; border-radius: calc(var(--ss-radius) - 5px); background: var(--ss-surface); box-shadow: 0 0 0 1px var(--ss-line); }
+.ss-subject-mark { position: absolute; left: 0; top: 18px; bottom: 18px; width: 3px; border-radius: 0 3px 3px 0; background: var(--ss-accent); }
+.ss-schedule-card h3 { margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; font-weight: 600; }
+.ss-schedule-card p { margin: 9px 0 0; display: flex; align-items: center; gap: 5px; color: var(--ss-dim); font-size: 11px; }
+.ss-schedule-card p svg { width: 13px; height: 13px; }
+
+.ss-nav { position: absolute; z-index: 4; left: 14px; right: 14px; bottom: 25px; min-height: 68px; padding: 7px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; border: 1px solid rgba(255,255,255,.1); border-radius: 25px; background: rgba(39,40,36,.94); box-shadow: 0 18px 42px rgba(0,0,0,.38); backdrop-filter: blur(14px); }
+.ss-nav button { min-width: 0; min-height: 54px; padding: 7px 2px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; border: 0; border-radius: 18px; color: var(--ss-dim); background: transparent; transition-property: color, background-color, scale; transition-duration: 150ms; transition-timing-function: ease-out; }
+.ss-nav button svg { width: 19px; height: 19px; stroke-width: 1.8; }
+.ss-nav button span { max-width: 100%; overflow: hidden; text-overflow: ellipsis; font-size: 9px; white-space: nowrap; }
+.ss-nav button.is-active { color: var(--ss-accent-ink); background: var(--ss-accent); }
+.ss-nav button:disabled { opacity: .68; }
+.ss-home-indicator { position: absolute; left: 50%; bottom: 9px; width: 120px; height: 4px; translate: -50% 0; border-radius: 999px; background: rgba(255,255,255,.8); }
+
+@media (hover: hover) {
+  .ss-icon-button:hover, .ss-row-action:hover { background: var(--ss-raised-2); box-shadow: 0 0 0 1px rgba(255,255,255,.13); }
+  .ss-text-button:hover { color: var(--ss-ink); }
+  .ss-days button:not(.is-selected):hover, .ss-nav button:not(:disabled):not(.is-active):hover { color: var(--ss-ink); background: rgba(255,255,255,.05); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ss-icon-button:not(:disabled):active,
+  .ss-row-action:not(:disabled):active,
+  .ss-text-button:not(:disabled):active,
+  .ss-days button:not(:disabled):active,
+  .ss-nav button:not(:disabled):active { scale: .96; }
+  .ss-enter { animation: ss-enter 300ms ease-out both; }
+  .ss-enter:nth-child(2) { animation-delay: 100ms; }
+  .ss-enter:nth-child(3) { animation-delay: 200ms; }
+  .ss-enter:nth-child(4) { animation-delay: 300ms; }
+  @keyframes ss-enter { from { opacity: 0; transform: translateY(12px); filter: blur(4px); } }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ss-enter { animation: ss-fade 150ms ease-out both; }
+  @keyframes ss-fade { from { opacity: 0; } }
+}
+
+@media (max-width: 360px) {
+  #studyspace-motion-preview { min-height: 770px; padding-inline: 0; }
+  .ss-phone { min-height: 742px; border-radius: 32px; }
+  .ss-main { padding-inline: 14px; }
+  .ss-next { padding: 16px; }
+  .ss-header h1 { font-size: 23px; }
+  .ss-nav { left: 9px; right: 9px; }
+  .ss-nav button span { font-size: 8px; }
+  .ss-days { gap: 2px; }
+}
+</style>
+
+<script>
+(() => {
+  const root = document.getElementById('studyspace-motion-preview');
+  if (!root) return;
+  const phone = root.querySelector('.ss-phone');
+  const panels = [...root.querySelectorAll('[data-panel]')];
+  const navButtons = [...root.querySelectorAll('.ss-nav [data-page]')];
+  const status = root.querySelector('#ss-preview-status');
+  const reduced = globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+
+  function enter(panel, direction = 1) {
+    if (!panel.animate) return;
+    panel.animate(
+      reduced
+        ? [{ opacity: .45 }, { opacity: 1 }]
+        : [{ opacity: .35, transform: `translateX(${direction * 12}px)`, filter: 'blur(4px)' }, { opacity: 1, transform: 'translateX(0)', filter: 'blur(0)' }],
+      { duration: reduced ? 150 : 300, easing: 'cubic-bezier(0.2, 0, 0, 1)' }
+    );
+  }
+
+  function showPage(page) {
+    panels.forEach(panel => {
+      const active = panel.dataset.panel === page;
+      panel.hidden = !active;
+      panel.classList.toggle('is-active', active);
+      if (active) enter(panel, page === 'schedule' ? 1 : -1);
+    });
+    navButtons.forEach(button => {
+      const active = button.dataset.page === page;
+      button.classList.toggle('is-active', active);
+      if (active) button.setAttribute('aria-current', 'page'); else button.removeAttribute('aria-current');
+    });
+    status.textContent = page === 'schedule' ? 'Открыто расписание' : 'Открыта главная';
+  }
+
+  navButtons.forEach(button => button.addEventListener('click', () => showPage(button.dataset.page)));
+  root.querySelector('[data-page-link="schedule"]')?.addEventListener('click', () => showPage('schedule'));
+
+  const weeks = ['2–8 ноября', '9–15 ноября', '16–22 ноября'];
+  let weekIndex = 1;
+  const weekLabel = root.querySelector('#ss-week-label');
+  root.querySelectorAll('[data-week]').forEach(button => button.addEventListener('click', () => {
+    const direction = button.dataset.week === 'next' ? 1 : -1;
+    weekIndex = Math.max(0, Math.min(weeks.length - 1, weekIndex + direction));
+    weekLabel.textContent = weeks[weekIndex];
+    enter(root.querySelector('.ss-schedule-list'), direction);
+    status.textContent = `Выбрана неделя ${weeks[weekIndex]}`;
+  }));
+
+  root.querySelectorAll('.ss-days button').forEach(button => button.addEventListener('click', () => {
+    root.querySelectorAll('.ss-days button').forEach(item => {
+      const selected = item === button;
+      item.classList.toggle('is-selected', selected);
+      item.setAttribute('aria-selected', String(selected));
+    });
+    root.querySelector('#ss-day-title').textContent = ({Пн:'Понедельник',Вт:'Вторник',Ср:'Среда',Чт:'Четверг',Пт:'Пятница',Сб:'Суббота'})[button.dataset.day];
+    enter(root.querySelector('.ss-schedule-list'));
+    status.textContent = `Выбран день ${button.dataset.day}`;
+  }));
+
+  const design = { accent: '#e7ff62', radius: 24 };
+  function renderDesign() {
+    phone.style.setProperty('--ss-accent', design.accent);
+    phone.style.setProperty('--ss-radius', `${design.radius}px`);
+  }
+  renderDesign();
+  if (globalThis.Tweak) {
+    const tweak = new Tweak({ container: phone, onChange: renderDesign });
+    tweak.addColorPicker(design, 'accent', { label: 'Акцент', reference: '--ss-accent' });
+    tweak.addSlider(design, 'radius', { label: 'Радиус карточек', min: 14, max: 30, unit: 'px', reference: '--ss-radius' });
+  }
+})();
+</script>
+
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (window.lucide) window.lucide.createIcons({ attrs: { 'aria-hidden': 'true' } });
+  });
+</script>
+</body>
+</html>

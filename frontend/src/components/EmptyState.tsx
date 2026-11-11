@@ -2,9 +2,9 @@ import type { ReactNode } from 'react'
 
 export function EmptyState({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <div className="rounded-2xl border border-dashed border-line bg-surface p-6 text-center">
-      <p className="font-medium">{title}</p>
-      <p className="mt-1 text-sm text-dim">{children}</p>
+    <div className="ui-surface rounded-card bg-surface px-5 py-6 text-center">
+      <p className="font-semibold">{title}</p>
+      <p className="mx-auto mt-1.5 max-w-sm text-sm leading-relaxed text-dim">{children}</p>
     </div>
   )
 }
